@@ -1,36 +1,211 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EcoSpine - Premium Ortopedik Matraslar
 
-## Getting Started
+EcoSpine - O'zbekistonda eng sifatli ortopedik va ekologik matraslar ishlab chiqaruvchi kompaniya. 15 yildan ortiq tajriba va 50,000+ mamnun mijoz.
 
-First, run the development server:
+## 🚀 Texnologiyalar
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS v4** - Modern styling with CSS variables
+- **React Query (TanStack)** - Server state management
+- **Radix UI** - Accessible UI components
+- **Lucide React** - Beautiful icons
+- **next-themes** - Dark/light mode support
+
+## 📁 Loyiha strukturasi
+
+```
+ecospine-front/
+├── app/                    # Next.js App Router
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx          # Home page
+│   └── products/         # Product pages
+├── components/            # React components
+│   ├── ui/               # Base UI components (Radix)
+│   ├── header/           # Header component
+│   ├── footer/           # Footer component
+│   └── ...              # Feature components
+├── constants/            # App constants
+├── types/               # TypeScript type definitions
+├── hooks/              # Custom React hooks
+├── services/           # API services
+├── utils/             # Utility functions
+├── view/             # Page-level components
+└── public/          # Static assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Ishga tushirish
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Talablar
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18.17 yoki undan yuqori
+- npm, yarn, pnpm yoki bun
 
-## Learn More
+### O'rnatish
 
-To learn more about Next.js, take a look at the following resources:
+1. Repository'ni clone qiling:
+```bash
+git clone <repository-url>
+cd ecospine-front
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Dependencies'larni o'rnating:
+```bash
+npm install
+# yoki
+yarn install
+# yoki
+pnpm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Environment variables sozlang:
+```bash
+# .env.local faylini yarating
+cp env.example .env.local
 
-## Deploy on Vercel
+# Backend API URL ni sozlang (default: http://localhost:8080/api/v1)
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8080/api/v1
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Backend serverni ishga tushiring:
+```bash
+# Alohida terminal oynasida backend papkasiga o'ting
+cd ../ecospine-back
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Backend serverni ishga tushiring
+npm install
+npm run create-owner  # Admin user yaratish
+npm start
+
+# Backend swagger docs: http://localhost:8080/api/docs
+```
+
+5. Kategoriyalarni initialize qiling:
+```bash
+# Backend ishga tushgandan keyin:
+curl -X POST http://localhost:8080/api/v1/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"admin","password":"admin123"}'
+
+# Login javobidan token oling va kategoriyalarni yarating:
+curl -X POST http://localhost:8080/api/v1/categories/initialize-mattress \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE"
+```
+
+6. Frontend development serverni ishga tushiring:
+```bash
+npm run dev
+# yoki
+yarn dev
+# yoki
+pnpm dev
+```
+
+7. Brauzerda [http://localhost:3000](http://localhost:3000) ochib ko'ring.
+
+**Eslatma**: Frontend port 3000, Backend port 8080 da ishlaydi.
+
+## 📋 Available Scripts
+
+```bash
+# Development server (Turbopack bilan)
+npm run dev
+
+# Production build
+npm run build
+
+# Production server
+npm run start
+
+# Linting
+npm run lint
+npm run lint:fix
+
+# Type checking
+npm run type-check
+
+# Formatting (Prettier)
+npm run format
+
+# Clean build artifacts
+npm run clean
+```
+
+## 🔧 Konfiguratsiya
+
+### Tailwind CSS v4
+Loyijada Tailwind CSS v4 ishlatilgan, CSS variables bilan konfiguratsiya qilingan.
+
+### TypeScript
+Strict mode yoqilgan va path mapping konfiguratsiya qilingan (`@/*` alias).
+
+### ESLint
+Next.js standart konfiguratsiyasi + custom rules.
+
+### Prettier
+Code formatting uchun konfiguratsiya qilingan.
+
+## 🎨 Design System
+
+Loyijada Radix UI asosida qurilgan design system ishlatiladi:
+
+- **Colors**: CSS custom properties orqali
+- **Components**: Radix UI primitives
+- **Icons**: Lucide React
+- **Theming**: next-themes bilan dark/light mode
+
+## 📱 Responsive Design
+
+- **Mobile First**: 375px dan boshlab
+- **Tablet**: 768px
+- **Desktop**: 1024px+
+- **Large Desktop**: 1440px+
+
+## 🔗 API Integration
+
+React Query (TanStack Query) orqali API bilan ishlash:
+
+```tsx
+import { useQuery } from '@tanstack/react-query'
+
+const { data, isLoading } = useQuery({
+  queryKey: ['products'],
+  queryFn: fetchProducts,
+})
+```
+
+## 🚀 Deployment
+
+### Vercel (Tavsiya etiladi)
+
+1. Vercel account yarating
+2. Repository'ni Vercel bilan bog'lang
+3. Automatic deployment sozlang
+
+### Custom Server
+
+1. Build qiling:
+```bash
+npm run build
+```
+
+2. Start qiling:
+```bash
+npm start
+```
+
+## 📞 Kontakt
+
+- **Telefon**: +998901234567
+- **Email**: info@ecospine.uz
+- **Manzil**: Chust Shaxri, Namangan Vil, O'zbekiston
+- **Ish vaqti**: Dushanba - Shanba: 09:00 - 18:00
+
+## 📄 License
+
+Bu loyiha EcoSpine kompaniyasiga tegishli.
+
+---
+
+**EcoSpine** - Sizning ajoyib uyquyingiz uchun!

@@ -1,0 +1,18 @@
+# Ignore artifacts:
+node_modules
+.next
+out
+dist
+build
+
+# Ignore all generated files
+*.min.js
+*.min.css
+
+# Ignore lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore env files
+.env*
