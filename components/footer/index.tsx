@@ -12,7 +12,7 @@ export function Footer() {
               <span className="text-primary-foreground font-bold text-lg">E</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-bold text-foreground bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                 {SITE_CONFIG.name}
               </span>
               <span className="text-xs text-muted-foreground -mt-1">Premium Sleep Solutions</span>

@@ -1,17 +1,48 @@
-// Product types
+// Backend API Response Types
 export interface Product {
-  id: number;
+  _id: string;
   title: string;
-  description: string;
-  price: string;
+  body: string;
+  price: number;
   image: string;
-  badges: string[];
-  isHighlighted?: boolean;
-  sizes?: ProductSize[];
-  features?: string[];
-  rating?: number;
-  reviews?: number;
+  imageUrl: string;
+  thumbnail: string;
+  thumbnailUrl: string;
+  category: Category;
+  categoryProperties: Record<string, CategoryPropertyValue>;
+  tags: string[];
+  status: ProductStatus;
+  views: number;
+  featured: boolean;
+  createdAt: string;
+  updatedAt: string;
+  slug?: string;
 }
+
+export type ProductStatus = "active" | "inactive" | "draft";
+export type CategoryPropertyValue = string | number | boolean;
+
+export interface Category {
+  _id: string;
+  name: string;
+  slug: string;
+  description: string;
+  properties: CategoryProperty[];
+  isActive: boolean;
+  sortOrder: number;
+}
+
+export interface CategoryProperty {
+  name: string;
+  type: CategoryPropertyType;
+  options?: string[];
+  unit?: string;
+  required: boolean;
+  description?: string;
+  defaultValue?: CategoryPropertyValue;
+}
+
+export type CategoryPropertyType = "select" | "number" | "text" | "boolean" | "range";
 
 export interface ProductSize {
   id: string;
@@ -19,32 +50,58 @@ export interface ProductSize {
   price: string;
 }
 
-// Component props types
+// Component props types - Adapted for backend data
 export interface ProductCardProps {
-  title: string;
-  description: string;
-  price: string;
-  image: string;
-  badges: string[];
-  isHighlighted?: boolean;
-  id?: number;
+  product: Product;
 }
 
-// API response types
+// API response types matching backend
 export interface ApiResponse<T> {
-  data: T;
   success: boolean;
   message?: string;
+  data: T;
+  timestamp?: string;
+  errors?: ValidationError[];
+}
+
+export interface ValidationError {
+  field: string;
+  message: string;
+  code?: string;
 }
 
 export interface PaginatedResponse<T> {
-  data: T[];
-  pagination: {
-    page: number;
-    limit: number;
-    total: number;
-    totalPages: number;
-  };
+  docs: T[];
+  totalDocs: number;
+  limit: number;
+  totalPages: number;
+  page: number;
+  pagingCounter: number;
+  hasPrevPage: boolean;
+  hasNextPage: boolean;
+  prevPage: number | null;
+  nextPage: number | null;
+}
+
+// Auth types
+export interface User {
+  _id: string;
+  username: string;
+  email: string;
+  role: UserRole;
+  isActive: boolean;
+  fullName?: string;
+  avatar?: string;
+  lastLoginAt?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export type UserRole = "owner" | "admin" | "moderator" | "guest";
+
+export interface LoginResponse {
+  token: string;
+  user: User;
 }
 
 // Feature types

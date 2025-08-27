@@ -59,7 +59,41 @@ yarn install
 pnpm install
 ```
 
-3. Development serverni ishga tushiring:
+3. Environment variables sozlang:
+```bash
+# .env.local faylini yarating
+cp env.example .env.local
+
+# Backend API URL ni sozlang (default: http://localhost:8080/api/v1)
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8080/api/v1
+```
+
+4. Backend serverni ishga tushiring:
+```bash
+# Alohida terminal oynasida backend papkasiga o'ting
+cd ../ecospine-back
+
+# Backend serverni ishga tushiring
+npm install
+npm run create-owner  # Admin user yaratish
+npm start
+
+# Backend swagger docs: http://localhost:8080/api/docs
+```
+
+5. Kategoriyalarni initialize qiling:
+```bash
+# Backend ishga tushgandan keyin:
+curl -X POST http://localhost:8080/api/v1/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"admin","password":"admin123"}'
+
+# Login javobidan token oling va kategoriyalarni yarating:
+curl -X POST http://localhost:8080/api/v1/categories/initialize-mattress \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE"
+```
+
+6. Frontend development serverni ishga tushiring:
 ```bash
 npm run dev
 # yoki
@@ -68,7 +102,9 @@ yarn dev
 pnpm dev
 ```
 
-4. Brauzerda [http://localhost:3000](http://localhost:3000) ochib ko'ring.
+7. Brauzerda [http://localhost:3000](http://localhost:3000) ochib ko'ring.
+
+**Eslatma**: Frontend port 3000, Backend port 8080 da ishlaydi.
 
 ## 📋 Available Scripts
 
