@@ -1,6 +1,5 @@
 
-import heroMattress from "@/public/heroImg.png"
-import { Button } from "../ui/button";
+import heroMattress from "@/public/heroImg.png";
 import Image from "next/image";
 
 const BeddingSection = () => {

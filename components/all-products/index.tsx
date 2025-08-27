@@ -1,9 +1,7 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React from "react";
 import { Button } from "@/components/ui/button";
 import gipoallergikMattress from "@/public/carImg.png";
-
-
 
 import {
   Select,
@@ -12,8 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import ProductCard from '../ProductCard';
-import axios from 'axios';
+import ProductCard from "../ProductCard";
 
 const AllProductsSeaction = () => {
   const products = [

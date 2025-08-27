@@ -25,41 +25,38 @@ const ProductPage = ({ params }: ProductPageProps) => {
     tags: ["Elastik", "Namlikka qarshi"],
     images: [
       "/hero-mattress.jpg",
-      "/hero-mattress.jpg", 
       "/hero-mattress.jpg",
       "/hero-mattress.jpg",
-      "/hero-mattress.jpg"
+      "/hero-mattress.jpg",
+      "/hero-mattress.jpg",
     ],
     sizes: [
-      { id: "1-kishi", name: "1 Kishi 90x120 sm" },
-      { id: "2-kishi", name: "2 Kishi 90x120 sm" },
-      { id: "king", name: "King size 180x200 sm" },
-      { id: "super-king", name: "Super King 180x200 sm" }
+      { id: "1-kishi", name: "1 Kishi 90x120 sm", price: "1,900,000 so'm" },
+      { id: "2-kishi", name: "2 Kishi 90x120 sm", price: "2,400,000 so'm" },
+      { id: "king", name: "King size 180x200 sm", price: "2,900,000 so'm" },
+      { id: "super-king", name: "Super King 180x200 sm", price: "3,200,000 so'm" },
     ],
-    features: [
-      "Bepul yetkazib berish",
-      "30 kun qaytarish", 
-      "15 yil kafolat"
-    ]
+    features: ["Bepul yetkazib berish", "30 kun qaytarish", "15 yil kafolat"],
   };
 
   const description = {
-    overview: "Anatomik GipoAllergik matras - zamonaviy texnologiyalar va tabiatdan ilhomlangan materiallarning mukammal kombinatsiyasi, sog'lik va qulaylik uchun tanlangan.",
+    overview:
+      "Anatomik GipoAllergik matras - zamonaviy texnologiyalar va tabiatdan ilhomlangan materiallarning mukammal kombinatsiyasi, sog&apos;lik va qulaylik uchun tanlangan.",
     zones: [
-      { zone: "Bosh va bo'yin zonasi", description: "yumshoq qo'llab-quvvatlash" },
-      { zone: "Yelka zonasi", description: "o'rtacha qattiqlik" },
-      { zone: "Bel zonasi", description: "maksimal qo'llab-quvvatlash" },
+      { zone: "Bosh va bo&apos;yin zonasi", description: "yumshoq qo&apos;llab-quvvatlash" },
+      { zone: "Yelka zonasi", description: "o&apos;rtacha qattiqlik" },
+      { zone: "Bel zonasi", description: "maksimal qo&apos;llab-quvvatlash" },
       { zone: "Dumba zonasi", description: "yumshoq moslashuvchanlik" },
-      { zone: "Son zonasi", description: "mustahkam qo'llab-quvvatlash" },
+      { zone: "Son zonasi", description: "mustahkam qo&apos;llab-quvvatlash" },
       { zone: "Tizza zonasi", description: "yumshoq moslashuvchanlik" },
-      { zone: "Oyoq zonasi", description: "yengil qo'llab-quvvatlash" }
+      { zone: "Oyoq zonasi", description: "yengil qo&apos;llab-quvvatlash" },
     ],
     hypoallergenic: [
-      "Chang kenesi va bakteriyalarni yo'q qiladi",
-      "Tabiiy Aloe Vera ekstrakti - terini himoya qiladi", 
+      "Chang kenesi va bakteriyalarni yo&apos;q qiladi",
+      "Tabiiy Aloe Vera ekstrakti - terini himoya qiladi",
       "Nafas olish qiyinliklarini kamaytiradi",
-      "Sensitive teri uchun xavfsiz"
-    ]
+      "Sensitive teri uchun xavfsiz",
+    ],
   };
 
   return (
@@ -67,7 +64,6 @@ const ProductPage = ({ params }: ProductPageProps) => {
       <div className="max-w-7xl mx-auto">
         {/* Product Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-          
           {/* Image Gallery */}
           <div className="space-y-4">
             {/* Main Image */}
@@ -78,7 +74,7 @@ const ProductPage = ({ params }: ProductPageProps) => {
                 className="w-full h-96 object-cover rounded-lg"
               />
             </div>
-            
+
             {/* Thumbnail Gallery */}
             <div className="flex gap-2">
               {product.images.map((image, index) => (
@@ -86,9 +82,9 @@ const ProductPage = ({ params }: ProductPageProps) => {
                   key={index}
                   onClick={() => setSelectedImage(index)}
                   className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                    selectedImage === index 
-                      ? 'border-blue-400' 
-                      : 'border-gray-300 hover:border-blue-300'
+                    selectedImage === index
+                      ? "border-blue-400"
+                      : "border-gray-300 hover:border-blue-300"
                   }`}
                 >
                   <img
@@ -104,69 +100,68 @@ const ProductPage = ({ params }: ProductPageProps) => {
           {/* Product Information */}
           <div className="space-y-6">
             {/* Tags */}
-            <div className='rounded-lg bg-[#1E243D] p-2'>
-            <div className="flex gap-2">
-              {product.tags.map((tag, index) => (
-                <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800">
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-
-            {/* Product Name */}
-            <h1 className="text-3xl font-bold text-white">{product.name}</h1>
-
-            {/* Rating */}
-            <div className="flex items-center gap-2">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`w-5 h-5 ${
-                      i < Math.floor(product.rating) 
-                        ? 'text-yellow-400 fill-current' 
-                        : 'text-gray-400'
-                    }`}
-                  />
+            <div className="rounded-lg bg-[#1E243D] p-2">
+              <div className="flex gap-2">
+                {product.tags.map((tag, index) => (
+                  <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800">
+                    {tag}
+                  </Badge>
                 ))}
               </div>
-              <span className="text-white">
-                {product.rating} ({product.reviews} ta sharh)
-              </span>
-            </div>
 
-            {/* Size Selection */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-white">O'lchamni tanlang:</h3>
+              {/* Product Name */}
+              <h1 className="text-3xl font-bold text-white">{product.name}</h1>
+
+              {/* Rating */}
               <div className="flex items-center gap-2">
-                {product.sizes.map((size) => (
-                  <button
-                    key={size.id}
-                    onClick={() => setSelectedSize(size.id)}
-                    className={`p-1 rounded-lg bg-[#1E243D] text-left transition-all w-[100px] flex justify-center items-center ${
-                      selectedSize === size.id
-                        ? 'border-blue-500 bg-blue-500/10 text-blue-400'
-                        : 'border-gray-300 text-white hover:border-blue-300'
-                    }`}
-                  >
-                    <div className="font-medium text-sm w-[90px] text-center">{size.name}</div>
-                  </button>
-                ))}
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-5 h-5 ${
+                        i < Math.floor(product.rating)
+                          ? "text-yellow-400 fill-current"
+                          : "text-gray-400"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <span className="text-white">
+                  {product.rating} ({product.reviews} ta sharh)
+                </span>
               </div>
-            </div>
 
-            {/* Price */}
-            <div className="text-2xl font-bold text-white py-2 px-6 rounded-lg bg-[#1E243D]">
-              {product.sizes.find(s => s.id === selectedSize)?.price || product.price}
-            </div>
+              {/* Size Selection */}
+              <div className="space-y-3">
+                <h3 className="text-lg font-semibold text-white">O&apos;lchamni tanlang:</h3>
+                <div className="flex items-center gap-2">
+                  {product.sizes.map(size => (
+                    <button
+                      key={size.id}
+                      onClick={() => setSelectedSize(size.id)}
+                      className={`p-1 rounded-lg bg-[#1E243D] text-left transition-all w-[100px] flex justify-center items-center ${
+                        selectedSize === size.id
+                          ? "border-blue-500 bg-blue-500/10 text-blue-400"
+                          : "border-gray-300 text-white hover:border-blue-300"
+                      }`}
+                    >
+                      <div className="font-medium text-sm w-[90px] text-center">{size.name}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-            {/* Call to Action */}
-            <Button className="w-full bg-green-600 hover:bg-green-700 text-white text-lg py-6">
-              <Phone className="w-5 h-5 mr-2" />
-              Qo'ng'iroq qilish
-            </Button>
-            </div>
+              {/* Price */}
+              <div className="text-2xl font-bold text-white py-2 px-6 rounded-lg bg-[#1E243D]">
+                {product.sizes.find(s => s.id === selectedSize)?.price || product.price}
+              </div>
 
+              {/* Call to Action */}
+              <Button className="w-full bg-green-600 hover:bg-green-700 text-white text-lg py-6">
+                <Phone className="w-5 h-5 mr-2" />
+                Qo&apos;ng&apos;iroq qilish
+              </Button>
+            </div>
 
             {/* Features */}
             <div className="grid grid-cols-1 gap-3">
@@ -186,20 +181,20 @@ const ProductPage = ({ params }: ProductPageProps) => {
         <Card className="bg-white/5 border-white/10 p-4">
           <Tabs defaultValue="description" className="w-full">
             <TabsList className="grid w-full grid-cols-3 bg-transparent">
-              <TabsTrigger 
-                value="description" 
+              <TabsTrigger
+                value="description"
                 className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-gray-300"
               >
                 Tavsif
               </TabsTrigger>
-              <TabsTrigger 
-                value="features" 
+              <TabsTrigger
+                value="features"
                 className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-gray-300"
               >
                 Xususiyatlari
               </TabsTrigger>
-              <TabsTrigger 
-                value="reviews" 
+              <TabsTrigger
+                value="reviews"
                 className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-gray-300"
               >
                 Sharhlar
@@ -208,13 +203,9 @@ const ProductPage = ({ params }: ProductPageProps) => {
 
             <TabsContent value="description" className="p-6">
               <div className="space-y-6">
-                <h3 className="text-xl font-semibold text-white">
-                  Mahsulot haqida batafsil
-                </h3>
-                
-                <p className="text-gray-300 leading-relaxed">
-                  {description.overview}
-                </p>
+                <h3 className="text-xl font-semibold text-white">Mahsulot haqida batafsil</h3>
+
+                <p className="text-gray-300 leading-relaxed">{description.overview}</p>
 
                 <div className="space-y-4">
                   <h4 className="text-lg font-semibold text-white">
@@ -222,7 +213,10 @@ const ProductPage = ({ params }: ProductPageProps) => {
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {description.zones.map((zone, index) => (
-                      <div key={index} className="flex justify-between p-3 bg-blue-800/20 rounded-lg">
+                      <div
+                        key={index}
+                        className="flex justify-between p-3 bg-blue-800/20 rounded-lg"
+                      >
                         <span className="text-white font-medium">{zone.zone}</span>
                         <span className="text-gray-300">- {zone.description}</span>
                       </div>
@@ -284,7 +278,8 @@ const ProductPage = ({ params }: ProductPageProps) => {
                       <span className="text-white font-medium">Ahmad</span>
                     </div>
                     <p className="text-gray-300">
-                      Ajoyib matras! Uyqu sifatim sezilarli darajada yaxshilandi. Ortopedik qo'llab-quvvatlash juda yaxshi.
+                      Ajoyib matras! Uyqu sifatim sezilarli darajada yaxshilandi. Ortopedik
+                      qo'llab-quvvatlash juda yaxshi.
                     </p>
                   </div>
                   <div className="p-4 bg-blue-800/20 rounded-lg">
@@ -297,7 +292,8 @@ const ProductPage = ({ params }: ProductPageProps) => {
                       <span className="text-white font-medium">Malika</span>
                     </div>
                     <p className="text-gray-300">
-                      Allergiyam bor edi, lekin bu matras bilan muammo yo'q. Tabiiy materiallar juda yaxshi.
+                      Allergiyam bor edi, lekin bu matras bilan muammo yo'q. Tabiiy materiallar juda
+                      yaxshi.
                     </p>
                   </div>
                 </div>

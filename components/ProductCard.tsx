@@ -1,14 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-
-interface ProductCardProps {
-  title: string;
-  description: string;
-  price: string;
-  image: string;
-  badges?: string[];
-  id?: number;
-}
+import { ProductCardProps } from "@/types";
 
 const ProductCard = ({ title, description, price, image, badges = [], id }: ProductCardProps) => {
   return (

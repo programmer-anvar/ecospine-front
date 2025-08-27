@@ -1,41 +1,40 @@
 // components/MattressFeatureSection.tsx
 import { Card, CardContent } from "@/components/ui/card"
-import { Home, Gem, Car, Shield } from "lucide-react"
-import Image from "next/image"
-
+import { Home, Gem, Car, Shield } from "lucide-react";
 
 const features = [
-    {
-      icon: <Home className="w-5 h-5 sm:w-6 sm:h-6 text-white" />,
-      title: "Ekologik toza mahsulot",
-      description: "Sifatli xomashyolardan ishlab chiqarilgan",
-    },
-    {
-      icon: <Gem className="w-5 h-5 sm:w-6 sm:h-6 text-white" />,
-      title: "Sifat",
-      description: "O'zbekistondagi va dunyoning eng yaxshi komponentlari",
-    },
-    {
-      icon: <Car className="w-5 h-5 sm:w-6 sm:h-6 text-white" />,
-      title: "Har qanday qiyinchilik",
-      description: "3 kun ichida har qanday o'lcham va shakl",
-    },
-    {
-      icon: <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-white" />,
-      title: "Kafolat",
-      description: "Xizmat muddati 15 yildan 20 yilgacha",
-    },
-  ]
+  {
+    icon: <Home className="w-5 h-5 sm:w-6 sm:h-6 text-white" />,
+    title: "Ekologik toza mahsulot",
+    description: "Sifatli xomashyolardan ishlab chiqarilgan",
+  },
+  {
+    icon: <Gem className="w-5 h-5 sm:w-6 sm:h-6 text-white" />,
+    title: "Sifat",
+    description: "O'zbekistondagi va dunyoning eng yaxshi komponentlari",
+  },
+  {
+    icon: <Car className="w-5 h-5 sm:w-6 sm:h-6 text-white" />,
+    title: "Har qanday qiyinchilik",
+    description: "3 kun ichida har qanday o'lcham va shakl",
+  },
+  {
+    icon: <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-white" />,
+    title: "Kafolat",
+    description: "Xizmat muddati 15 yildan 20 yilgacha",
+  },
+];
 
-const Guarantee =() =>{
-    return(
-      <section className="text-white py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+const Guarantee = () => {
+  return (
+    <section className="text-white py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Left Side */}
           <div className="max-w-[500px] lg:w-1/2 space-y-6">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
-              Sizning ajoyib uyquyingiz <br className="hidden sm:block" /> uchun biz doimo xizmatdamiz
+              Sizning ajoyib uyquyingiz <br className="hidden sm:block" /> uchun biz doimo
+              xizmatdamiz
             </h2>
             <div className="space-y-3 sm:space-y-4">
               {features.map((feature, index) => (
@@ -51,8 +50,12 @@ const Guarantee =() =>{
 
                     {/* Text Content */}
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-sm text-white sm:text-base font-bold mb-1">{feature.title}</h3>
-                      <p className="text-xs sm:text-sm text-white/80 leading-relaxed">{feature.description}</p>
+                      <h3 className="text-sm text-white sm:text-base font-bold mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
+                        {feature.description}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
@@ -71,7 +74,7 @@ const Guarantee =() =>{
         </div>
       </div>
     </section>
-    )
-}
+  );
+};
 
 export default Guarantee
